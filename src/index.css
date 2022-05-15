@@ -6,8 +6,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Heebo", sans-serif;
 }
 
 body {
-  font-family: "Heebo", sans-serif;
+  background-color: #1b1e3c;
+}
+
+h1 {
+  font-family: "Macondo", cursive;
 }
