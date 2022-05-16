@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import "./App.css";
 import { Success } from "./components/Success";
 import { ImSpinner2 } from "react-icons/im";
+import { Fail } from "./components/Fail";
 // import axios from "axios";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [fail, setFail] = useState(false);
   const {
     register,
     handleSubmit,
@@ -25,7 +27,7 @@ function App() {
       setSuccess(true);
     } catch (error) {
       setIsLoading(true);
-      setSuccess(true);
+      setFail(true);
       console.log(data);
       setIsLoading(false);
     }
@@ -34,6 +36,7 @@ function App() {
   const Select = React.forwardRef(({ onChange, name, label }, ref) => (
     <>
       <Success call={success} />
+      <Fail call={fail} />
       <label className="text-base text-secondary">{label}</label>
       <select
         name={name}
