@@ -88,7 +88,7 @@ function App() {
         </section>
 
         <section className="space-y-5 my-20">
-          <h1 className="text-4xl font-semibold">Spring Feast</h1>
+          <h1 className="text-4xl font-semibold">Spring Fest</h1>
           <p className="text-white text-lg w-9/12">
             Register and recieve a free gift from us.
           </p>
