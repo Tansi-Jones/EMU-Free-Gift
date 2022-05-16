@@ -16,12 +16,12 @@ function App() {
 
   const Select = React.forwardRef(({ onChange, name, label }, ref) => (
     <>
-      <label className="text-base text-[#B5BBF4]">{label}</label>
+      <label className="text-base text-secondary">{label}</label>
       <select
         name={name}
         ref={ref}
         onChange={onChange}
-        className="w-full bg-transparent border-b outline-none border-[#5058B0] text-secondary text-lg font-normal p-1"
+        className="w-full bg-transparent border-b outline-none border-primary text-secondary text-lg font-normal p-1"
       >
         <option value=""></option>
         <option value="eng">English</option>
