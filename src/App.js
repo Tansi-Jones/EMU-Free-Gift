@@ -59,6 +59,7 @@ function App() {
         <option value="eng">English</option>
         <option value="far">Farci</option>
         <option value="fre">French</option>
+<option value="rus">Russian</option>
       </select>
     </>
   ));
