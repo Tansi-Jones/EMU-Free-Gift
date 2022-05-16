@@ -1,23 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "./img/loveworld.png";
-import Blobber from "./img/blobber.svg";
+// import Blobber from "./img/blobber.svg";
 import { useForm } from "react-hook-form";
 import "./App.css";
 import { Success } from "./components/Success";
+import { ImSpinner2 } from "react-icons/im";
+// import axios from "axios";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      setIsLoading(true);
+      // const { response } = await axios.post(``, data);
+      // console.log(data);
+      setIsLoading(false);
+      setSuccess(true);
+    } catch (error) {
+      setIsLoading(true);
+      console.log(data);
+      setIsLoading(false);
+    }
+  };
 
   const Select = React.forwardRef(({ onChange, name, label }, ref) => (
     <>
-      <Success />
+      <Success call={success} />
       <label className="text-base text-secondary">{label}</label>
       <select
         name={name}
@@ -75,7 +90,11 @@ function App() {
                 {...register("name", { required: true })}
                 className="w-full bg-transparent border-b outline-none border-b-primary text-primary text-lg font-normal p-1"
               />
-              {errors.name && <span>Your name is required</span>}
+              {errors.name && (
+                <span className="text-red-400 font-light text-sm">
+                  Your name is required
+                </span>
+              )}
             </div>
             <div className="space-y-1">
               <label className="text-base text-secondary">Your email</label>
@@ -83,19 +102,28 @@ function App() {
                 {...register("email", { required: true })}
                 className="w-full bg-transparent border-b outline-none border-primary text-primary text-lg font-normal p-1"
               />
-              {errors.email && <span>Your email is required</span>}
+              {errors.email && (
+                <span className="text-red-400 font-light text-sm">
+                  Your email is required
+                </span>
+              )}
             </div>
             <div>
               <Select label="Select your language" {...register("language")} />
-              {errors.langauge && <span>Please select a language</span>}
+              {errors.langauge && (
+                <span className="text-red-400 font-light text-sm">
+                  Please select a language
+                </span>
+              )}
             </div>
 
             <div className="pt-8">
               <button
                 type="submit"
-                className="bg-primary text-white font-medium rounded w-full text-center py-2"
+                className="bg-primary text-white font-medium rounded w-full text-center py-2 flex items-center justify-center space-x-3"
               >
-                Submit
+                <span>Submit</span>
+                {isLoading && <ImSpinner2 className="animate-spin" />}
               </button>
             </div>
           </form>

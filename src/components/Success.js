@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, Fragment } from "react";
-import { BadgeCheckIcon } from "@heroicons/react/solid";
+import { HiBadgeCheck } from "react-icons/hi";
 import { Dialog, Transition } from "@headlessui/react";
 
-export const Success = () => {
-  const [modal, setModal] = useState(true);
+export const Success = ({ call }) => {
+  const [modal, setModal] = useState(call);
 
   function close() {
     setModal(false);
@@ -41,7 +41,7 @@ export const Success = () => {
                   <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-xl bg-white py-8 px-6 text-left align-middle shadow-xl transition-all">
                     <div className="space-y-3">
                       <div className="flex items-center justify-center">
-                        <BadgeCheckIcon className="h-14 text-green-500 text-center" />
+                        <HiBadgeCheck className="text-6xl text-green-500 text-center" />
                       </div>
                       <h2 className="text-xl text-center text-slate-800 font-semibold">
                         Thank you for registering!
