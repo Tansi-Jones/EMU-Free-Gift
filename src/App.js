@@ -6,12 +6,14 @@ import "./App.css";
 import { Success } from "./components/Success";
 import { ImSpinner2 } from "react-icons/im";
 import { Fail } from "./components/Fail";
-// import axios from "axios";
+import axios from "axios";
+import fileDownload from "js-file-download";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [fail, setFail] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,16 +21,24 @@ function App() {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     try {
       setIsLoading(true);
-      // const { response } = await axios.post(``, data);
-      // console.log(data);
+      axios({
+        url: "http://localhost:5000/api/user/submit",
+        method: "POST",
+        responseType: "blob",
+        data: data,
+      }).then((res) => {
+        fileDownload(res.data, `Rhapsody of Realities - ${data.language}.pdf`);
+      });
+
       setIsLoading(false);
       setSuccess(true);
     } catch (error) {
       setIsLoading(true);
       setFail(true);
-      console.log(data);
+      // console.log(data);
       setIsLoading(false);
     }
   };
@@ -45,12 +55,10 @@ function App() {
         className="w-full bg-transparent border-b outline-none border-primary text-secondary text-lg font-normal p-1"
       >
         <option value=""></option>
-        <option value="eng">English</option>
-        <option value="fre">French</option>
-        <option value="rus">Rusian</option>
         <option value="arab">Arabic</option>
+        <option value="eng">English</option>
         <option value="far">Farci</option>
-        <option value="ur">Urdu</option>
+        <option value="fre">French</option>
       </select>
     </>
   ));
@@ -114,7 +122,7 @@ function App() {
             </div>
             <div>
               <Select label="Select your language" {...register("language")} />
-              {errors.langauge && (
+              {errors.language && (
                 <span className="text-red-400 font-light text-sm">
                   Please select a language
                 </span>
@@ -125,6 +133,7 @@ function App() {
               <button
                 type="submit"
                 className="bg-primary text-white font-medium rounded w-full text-center py-2 flex items-center justify-center space-x-3"
+                // onClick={downloadGift}
               >
                 <span>Submit</span>
                 {isLoading && <ImSpinner2 className="animate-spin" />}

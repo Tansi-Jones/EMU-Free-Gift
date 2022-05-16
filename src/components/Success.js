@@ -8,6 +8,7 @@ export const Success = ({ call }) => {
 
   function close() {
     setModal(false);
+    window.location.reload();
   }
 
   return (
