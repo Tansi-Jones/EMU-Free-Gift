@@ -48,7 +48,7 @@ export const Success = ({ call }) => {
                         Thank you for registering!
                       </h2>
                       <p className="text-slate-500 text-xs text-center">
-                        Your gift will start downloading any second now...
+                        Your gift will start downloading any second now, wait untill <br/> it is completely downloaded before you close this window
                       </p>
                     </div>
                   </Dialog.Panel>
