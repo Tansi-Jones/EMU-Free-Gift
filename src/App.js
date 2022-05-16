@@ -3,6 +3,7 @@ import Logo from "./img/loveworld.png";
 import Blobber from "./img/blobber.svg";
 import { useForm } from "react-hook-form";
 import "./App.css";
+import { Success } from "./components/Success";
 
 function App() {
   const {
@@ -16,6 +17,7 @@ function App() {
 
   const Select = React.forwardRef(({ onChange, name, label }, ref) => (
     <>
+      <Success />
       <label className="text-base text-secondary">{label}</label>
       <select
         name={name}
