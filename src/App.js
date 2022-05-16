@@ -25,6 +25,7 @@ function App() {
       setSuccess(true);
     } catch (error) {
       setIsLoading(true);
+      setSuccess(true);
       console.log(data);
       setIsLoading(false);
     }
