@@ -25,7 +25,7 @@ function App() {
     try {
       setIsLoading(true);
       axios({
-        url: "http://localhost:5000/api/user/submit",
+        url: "https://spring-feast-server.herokuapp.com/api/user/submit",
         method: "POST",
         responseType: "blob",
         data: data,
