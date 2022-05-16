@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Heebo", sans-serif;
+  overflow: hidden;
 }
 
 body {
@@ -15,4 +16,5 @@ body {
 
 h1 {
   font-family: "Macondo", cursive;
+  color: #565fbf;
 }
