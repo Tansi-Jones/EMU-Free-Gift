@@ -29,7 +29,9 @@ function App() {
         method: "POST",
         responseType: "blob",
         data: data,
-        headers: ("Access-Control-Allow-Origin", "*"),
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
       }).then((res) => {
         fileDownload(res.data, `Rhapsody of Realities - ${data.language}.pdf`);
       });
