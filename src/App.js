@@ -21,7 +21,7 @@ function App() {
         name={name}
         ref={ref}
         onChange={onChange}
-        className="w-full bg-transparent border-b outline-none border-[#5058B0] text-[#5058B0] text-lg font-normal p-1"
+        className="w-full bg-transparent border-b outline-none border-[#5058B0] text-secondary text-lg font-normal p-1"
       >
         <option value=""></option>
         <option value="eng">English</option>
@@ -68,18 +68,18 @@ function App() {
         <section>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div className="space-y-1">
-              <p className="text-base text-[#B5BBF4]">Your name</p>
+              <p className="text-base text-secondary">Your name</p>
               <input
                 {...register("name", { required: true })}
-                className="w-full bg-transparent border-b outline-none border-b-[#5058B0] text-[#5058B0] text-lg font-normal p-1"
+                className="w-full bg-transparent border-b outline-none border-b-primary text-primary text-lg font-normal p-1"
               />
               {errors.name && <span>Your name is required</span>}
             </div>
             <div className="space-y-1">
-              <label className="text-base text-[#B5BBF4]">Your email</label>
+              <label className="text-base text-secondary">Your email</label>
               <input
                 {...register("email", { required: true })}
-                className="w-full bg-transparent border-b outline-none border-[#5058B0] text-[#5058B0] text-lg font-normal p-1"
+                className="w-full bg-transparent border-b outline-none border-primary text-primary text-lg font-normal p-1"
               />
               {errors.email && <span>Your email is required</span>}
             </div>
@@ -91,7 +91,7 @@ function App() {
             <div className="pt-8">
               <button
                 type="submit"
-                className="bg-[#5058B0] text-white font-medium rounded w-full text-center py-2"
+                className="bg-primary text-white font-medium rounded w-full text-center py-2"
               >
                 Submit
               </button>
